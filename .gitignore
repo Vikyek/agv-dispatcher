@@ -1,0 +1,7 @@
+# Git Ignore for AGY Plugin
+
+.codegraph/
+*.log
+tmp/
+scratch/
+.system_generated/
