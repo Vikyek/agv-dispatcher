@@ -1,10 +1,10 @@
-# AGY Orchestrator-Dispatch Plugin
+# agy-vispatcher
 
 A token-efficient, self-scaling multi-agent orchestration plugin for the Google Antigravity (AGY) CLI.
 
 ## Overview
 
-The Orchestrator-Dispatch system acts as a lightweight dispatcher that:
+The `agy-vispatcher` system acts as a lightweight dispatcher that:
 1. **Assesses Task Complexity** before any execution.
 2. **Routes Tasks** to optimally-tiered worker subagents (model & effort matched to subtask).
 3. **Optimizes Quota Pools** across Gemini and Claude pools dynamically.
@@ -20,12 +20,12 @@ The Orchestrator-Dispatch system acts as a lightweight dispatcher that:
 ## Plugin Structure
 
 ```text
-orchestrator-dispatch/
+agy-vispatcher/
 ├── plugin.json                 # Manifest declaring plugin name
 ├── rules/
-│   └── orchestrator_rule.md    # Pre-task and Quota activation rules
+│   └── vispatcher_rule.md      # Pre-task and Quota activation rules
 └── skills/
-    └── dispatch/
+    └── vispatch/
         └── SKILL.md            # Execution and Tool Schema Pruning logic
 ```
 
@@ -36,21 +36,21 @@ orchestrator-dispatch/
 1. Link or copy this plugin to your global customizations directory:
    ```bash
    mkdir -p ~/.gemini/config/plugins/
-   ln -s ~/Projects/orchestrator-dispatch ~/.gemini/config/plugins/orchestrator-dispatch
+   ln -s ~/Projects/agy-vispatcher ~/.gemini/config/plugins/agy-vispatcher
    ```
 
 2. Register the plugin in `~/.gemini/config/plugins.json`:
    ```json
    {
      "entries": [
-       { "path": "~/.gemini/config/plugins/orchestrator-dispatch" }
+       { "path": "~/.gemini/config/plugins/agy-vispatcher" }
      ]
    }
    ```
 
 ## Tool Schema Pruning (MCP Optimization)
 
-To reduce token overhead, the orchestrator dynamically creates custom `.agents/mcp_config.json` configurations in branched workspaces before spawning worker subagents:
+To reduce token overhead, the vispatcher dynamically creates custom `.agents/mcp_config.json` configurations in branched workspaces before spawning worker subagents:
 - **Scout Config**: Exposes only `codegraph` (`codegraph_explore`).
 - **Worker Config**: Exposes only `toon` for structured payloads.
 - **Architect Config**: Full suite (codegraph, context-mode, toon).

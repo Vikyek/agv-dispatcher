@@ -1,5 +1,5 @@
 ---
-name: orchestrator-dispatch
+name: agy-vispatcher
 description: >
   Token-efficient task orchestration system. Activates on complex multi-step tasks,
   /goal commands, or when task naturally decomposes into 3+ independent subtasks.
@@ -8,7 +8,7 @@ description: >
   orchestrate, dispatch, delegate, coordinate workers.
 ---
 
-# Orchestrator-Dispatch System
+# Vispatcher System
 
 ## Activation Criteria
 
@@ -65,7 +65,7 @@ Do NOT activate for:
 
 ## Tool Schema Pruning (MCP Token Optimization)
 
-To reduce token overhead in subagents, the Orchestrator MUST write a pruned `.agents/mcp_config.json` inside the worker's branched workspace directory *before* calling `invoke_subagent`.
+To reduce token overhead in subagents, the Vispatcher MUST write a pruned `.agents/mcp_config.json` inside the worker's branched workspace directory *before* calling `invoke_subagent`.
 
 ### Scout MCP Config Template (only `codegraph`)
 ```json
@@ -100,7 +100,7 @@ Use the global `~/.gemini/config/mcp_config.json` directly (no pruning needed, o
 When spawning a Coordinator Successor, pass this structured payload:
 
 ```
-## Orchestration Handoff
+## Vispatcher Handoff
 
 ### Goal
 [Original user request, verbatim]
@@ -148,7 +148,7 @@ All workers must return reports in this format:
 **Blockers**: [if any]
 ```
 
-Orchestrator consumes reports and:
+Vispatcher consumes reports and:
 1. Aggregates results
 2. Detects failures → triggers Coordinator Successor if 2+ failures
 3. Reports final summary to user
