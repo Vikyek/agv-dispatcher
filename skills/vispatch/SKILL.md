@@ -1,5 +1,5 @@
 ---
-name: agy-vispatcher
+name: agv-dispatcher
 description: >
   Token-efficient task orchestration system. Activates on complex multi-step tasks,
   /goal commands, or when task naturally decomposes into 3+ independent subtasks.
