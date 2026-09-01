@@ -1,0 +1,3 @@
+[submodule "modules/agy-vules-integration"]
+	path = modules/agy-vules-integration
+	url = https://github.com/Vikyek/agy-vules-integration.git
