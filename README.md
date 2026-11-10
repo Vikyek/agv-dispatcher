@@ -1,5 +1,8 @@
 # agv-dispatcher
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Sponsor Vikyek](https://img.shields.io/badge/Sponsor-GitHub-ea4aaa?logo=github-sponsors&logoColor=white)](https://github.com/sponsors/Vikyek)
+
 A token-efficient, self-scaling multi-agent orchestration plugin for the Google Antigravity (AGY) CLI.
 
 ## Overview
@@ -54,6 +57,22 @@ To reduce token overhead, the dispatcher dynamically creates custom `.agents/mcp
 - **Scout Config**: Exposes only `codegraph` (`codegraph_explore`).
 - **Worker Config**: Exposes only `toon` for structured payloads.
 - **Architect Config**: Full suite (codegraph, context-mode, toon).
+
+---
+
+## 💖 Support & Sponsorship
+
+`agv-dispatcher` is developed and maintained independently by **[Vikyek](https://github.com/Vikyek)**.
+
+> ### 🎯 Active Sponsorship Goal: Monthly Living Essentials
+> **Target:** **2,710 PLN / ~$675 USD per month** (Rent & Utilities)  
+> Covering basic living essentials directly unlocks dedicated, sustainable full-time independent open-source engineering across AI agent tooling and developer infrastructure.
+
+If `agv-dispatcher` saves quotas and optimizes agent runs in your setup, consider supporting ongoing work:
+
+- **GitHub Sponsors**: [github.com/sponsors/Vikyek](https://github.com/sponsors/Vikyek)
+
+---
 
 ## License
 
