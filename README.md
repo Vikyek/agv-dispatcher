@@ -34,12 +34,23 @@ agv-dispatcher/
 
 ## Setup & Installation
 
-### Global Plugin Installation
+### Automated Installation
 
-1. Install or clone this plugin to your global customizations directory:
+Run the bundled installation script to register the plugin and skill into `~/.gemini/config/`:
+
+```bash
+git clone https://github.com/Vikyek/agv-dispatcher.git ~/Projects/agv-dispatcher
+cd ~/Projects/agv-dispatcher
+./install.sh
+```
+
+### Manual Plugin & Skill Setup
+
+1. Link or clone this repository into your customizations directory:
    ```bash
-   mkdir -p ~/.gemini/config/plugins/
-   git clone https://github.com/Vikyek/agv-dispatcher.git ~/.gemini/config/plugins/agv-dispatcher
+   mkdir -p ~/.gemini/config/plugins ~/.gemini/config/skills/agv-dispatcher
+   ln -sfn ~/Projects/agv-dispatcher ~/.gemini/config/plugins/agv-dispatcher
+   ln -sf ~/Projects/agv-dispatcher/skills/dispatcher/SKILL.md ~/.gemini/config/skills/agv-dispatcher/SKILL.md
    ```
 
 2. Register the plugin in `~/.gemini/config/plugins.json`:
@@ -50,6 +61,13 @@ agv-dispatcher/
      ]
    }
    ```
+
+### Agensi / SKILL.md Agent Loading
+
+`agv-dispatcher` is fully compliant with the open `SKILL.md` standard and compatible with Agensi:
+- Root [`SKILL.md`](SKILL.md) provides instant single-skill ingestion.
+- Sub-skill path [`skills/dispatcher/SKILL.md`](skills/dispatcher/SKILL.md) supports multi-skill pack structures.
+- Compatible with Antigravity (AGY), Gemini CLI, Claude Code, Cursor, and Codex CLI.
 
 ## Tool Schema Pruning (MCP Optimization)
 

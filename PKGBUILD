@@ -1,7 +1,7 @@
 # Maintainer: Vikyek <https://github.com/Vikyek>
 pkgname=agv-dispatcher
 pkgver=1.0.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Token-efficient multi-agent task dispatcher & self-scaling orchestrator for Antigravity (AGY)"
 arch=('any')
 url="https://github.com/Vikyek/agv-dispatcher"
@@ -19,6 +19,8 @@ package() {
     install -d "$plugin_dir"
 
     cp -r plugin.json rules skills "$plugin_dir/"
+    [ -f "SKILL.md" ] && cp -d SKILL.md "$plugin_dir/"
+    [ -f "install.sh" ] && install -Dm755 install.sh "$plugin_dir/install.sh"
 
     install -Dm644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
     install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"

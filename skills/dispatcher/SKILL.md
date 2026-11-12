@@ -1,11 +1,33 @@
 ---
 name: agv-dispatcher
-description: >
-  Token-efficient task orchestration system. Activates on complex multi-step tasks,
-  /goal commands, or when task naturally decomposes into 3+ independent subtasks.
-  Routes work to optimally-tiered worker subagents across Gemini and Claude quota pools.
-  WHEN: complex task, /goal, multi-phase work, parallel subtasks, quota pressure,
-  orchestrate, dispatch, delegate, coordinate workers.
+description: >-
+  Token-efficient multi-agent task orchestration system. Automatically activates
+  on complex multi-step tasks, /goal commands, or when tasks decompose into 3+
+  subtasks. Routes work to optimally tiered subagent models across Gemini and
+  Claude quota pools, and applies dynamic MCP tool schema pruning.
+version: 1.0.0
+summary: >-
+  Token-efficient multi-agent task dispatcher and quota balancing orchestrator
+  with MCP tool schema pruning and Coordinator Successor patterns.
+tags:
+  - agents-orchestration
+  - quota-optimization
+  - multi-agent
+  - mcp-pruning
+  - task-delegation
+keywords:
+  - dispatcher
+  - orchestrator
+  - subagent
+  - gemini
+  - claude
+  - quota
+  - vispatcher
+  - antigravity
+use_cases:
+  - Orchestrating complex multi-file refactoring and feature implementation across tiered subagent workers
+  - Balancing rate limits and quota pools dynamically between Google Gemini and Anthropic Claude
+  - Pruning MCP tool schemas in worker workspaces to reduce token usage by 30-60%
 ---
 
 # Dispatcher System
