@@ -1,3 +1,7 @@
+---
+trigger: always_on
+---
+
 # Quota Minimization, Dual-Provider & Self-Scaling Orchestration
 
 - **Pre-Task Assessment & Subagent Delegation**: At start of task, assess model tier & effort required. For any non-trivial coding/research task requiring execution, immediately delegate to a worker subagent (`invoke_subagent`) using the assessed model tier (`flash_lite` for reads/indexing, `flash` for edits/scripts, `pro` / Claude for complex reasoning/architecture) and effort. Only answer trivial 1-turn Q&A directly in parent context.
