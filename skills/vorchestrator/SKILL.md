@@ -1,5 +1,5 @@
 ---
-name: agv-dispatcher
+name: vorchestrator
 description: >-
   Token-efficient multi-agent task orchestration system. Automatically activates
   on complex multi-step tasks, /goal commands, or when tasks decompose into 3+
@@ -7,7 +7,7 @@ description: >-
   Claude quota pools, and applies dynamic MCP tool schema pruning.
 version: 1.0.0
 summary: >-
-  Token-efficient multi-agent task dispatcher and quota balancing orchestrator
+  Token-efficient multi-agent task orchestrator and quota balancing coordinator
   with MCP tool schema pruning and Coordinator Successor patterns.
 tags:
   - agents-orchestration
@@ -16,13 +16,12 @@ tags:
   - mcp-pruning
   - task-delegation
 keywords:
-  - dispatcher
+  - vorchestrator
   - orchestrator
   - subagent
   - gemini
   - claude
   - quota
-  - vispatcher
   - antigravity
 use_cases:
   - Orchestrating complex multi-file refactoring and feature implementation across tiered subagent workers
@@ -30,7 +29,7 @@ use_cases:
   - Pruning MCP tool schemas in worker workspaces to reduce token usage by 30-60%
 ---
 
-# Dispatcher System
+# Vorchestrator System
 
 ## Activation Criteria
 
@@ -87,7 +86,7 @@ Do NOT activate for:
 
 ## Tool Schema Pruning (MCP Token Optimization)
 
-To reduce token overhead in subagents, the Dispatcher MUST write a pruned `.agents/mcp_config.json` inside the worker's branched workspace directory *before* calling `invoke_subagent`.
+To reduce token overhead in subagents, Vorchestrator MUST write a pruned `.agents/mcp_config.json` inside the worker's branched workspace directory *before* calling `invoke_subagent`.
 
 ### Scout MCP Config Template (only `codegraph`)
 ```json
@@ -122,7 +121,7 @@ Use the global `~/.gemini/config/mcp_config.json` directly (no pruning needed, o
 When spawning a Coordinator Successor, pass this structured payload:
 
 ```
-## Dispatcher Handoff
+## Vorchestrator Handoff
 
 ### Goal
 [Original user request, verbatim]
@@ -170,7 +169,7 @@ All workers must return reports in this format:
 **Blockers**: [if any]
 ```
 
-Dispatcher consumes reports and:
+Vorchestrator consumes reports and:
 1. Aggregates results
 2. Detects failures → triggers Coordinator Successor if 2+ failures
 3. Reports final summary to user

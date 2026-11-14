@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# install.sh — Setup script for agv-dispatcher
+# install.sh — Setup script for vorchestrator
 # Installs/links the plugin and skill into Antigravity configuration.
 #
 
@@ -8,11 +8,11 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 GEMINI_DIR="${HOME}/.gemini/config"
-PLUGIN_DIR="${GEMINI_DIR}/plugins/agv-dispatcher"
-SKILL_DIR="${GEMINI_DIR}/skills/agv-dispatcher"
+PLUGIN_DIR="${GEMINI_DIR}/plugins/vorchestrator"
+SKILL_DIR="${GEMINI_DIR}/skills/vorchestrator"
 PLUGINS_JSON="${GEMINI_DIR}/plugins.json"
 
-echo "🚀 [agv-dispatcher] Installing plugin and skill..."
+echo "🚀 [vorchestrator] Installing plugin and skill..."
 
 mkdir -p "${GEMINI_DIR}/plugins" "${GEMINI_DIR}/skills"
 
@@ -21,12 +21,12 @@ ln -sfn "${SCRIPT_DIR}" "${PLUGIN_DIR}"
 
 # Symlink skill directory
 mkdir -p "${SKILL_DIR}"
-ln -sf "${SCRIPT_DIR}/skills/dispatcher/SKILL.md" "${SKILL_DIR}/SKILL.md"
+ln -sf "${SCRIPT_DIR}/skills/vorchestrator/SKILL.md" "${SKILL_DIR}/SKILL.md"
 
 # Ensure registered in plugins.json if file exists
 if [[ -f "${PLUGINS_JSON}" ]]; then
-    if ! grep -q "agv-dispatcher" "${PLUGINS_JSON}"; then
-        echo "📝 [agv-dispatcher] Registering in plugins.json..."
+    if ! grep -q "vorchestrator" "${PLUGINS_JSON}"; then
+        echo "📝 [vorchestrator] Registering in plugins.json..."
         python3 -c "
 import json
 p = '${PLUGINS_JSON}'
@@ -34,7 +34,7 @@ try:
     with open(p, 'r') as f:
         data = json.load(f)
     entries = data.get('entries', [])
-    target = '~/.gemini/config/plugins/agv-dispatcher'
+    target = '~/.gemini/config/plugins/vorchestrator'
     if not any(e.get('path') == target for e in entries):
         entries.append({'path': target})
         data['entries'] = entries
@@ -47,6 +47,6 @@ except Exception as e:
     fi
 fi
 
-echo "✅ [agv-dispatcher] Installation completed successfully!"
+echo "✅ [vorchestrator] Installation completed successfully!"
 echo "   Plugin: ${PLUGIN_DIR}"
 echo "   Skill:  ${SKILL_DIR}/SKILL.md"

@@ -1,1 +1,1 @@
-skills/dispatcher/SKILL.md
+skills/vorchestrator/SKILL.md

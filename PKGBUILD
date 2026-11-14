@@ -1,10 +1,10 @@
 # Maintainer: Vikyek <https://github.com/Vikyek>
-pkgname=agv-dispatcher
+pkgname=vorchestrator
 pkgver=1.0.0
-pkgrel=2
-pkgdesc="Token-efficient multi-agent task dispatcher & self-scaling orchestrator for Antigravity (AGY)"
+pkgrel=1
+pkgdesc="Token-efficient multi-agent task orchestrator & self-scaling coordinator for Antigravity (AGY)"
 arch=('any')
-url="https://github.com/Vikyek/agv-dispatcher"
+url="https://github.com/Vikyek/vorchestrator"
 license=('MIT')
 depends=('python' 'git')
 optdepends=(
